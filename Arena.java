@@ -33,12 +33,12 @@ abstract class Combattente{
         setPuntiVita(puntiVita);
     }
 public void riceviDanno(int danno){
-        this.puntiVita = this.puntiVita - danno; // AGGIORNO GLI HP VERI!
+        this.puntiVita = this.puntiVita - danno;
         
         if(this.puntiVita > 0){
             System.out.println(getNome() + " subisce " + danno + " danni! HP rimasti: " + this.puntiVita);
         } else {
-            this.puntiVita = 0; // Evito che gli HP vadano sotto zero
+            this.puntiVita = 0;
             System.out.println(getNome() + " è andato K.O.! 💀");
         }
     }
