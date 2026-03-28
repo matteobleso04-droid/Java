@@ -96,6 +96,9 @@ public static void main(String[] args) {
     gruppo.add(m1);
     for(Combattente c : gruppo){
         System.out.println(c.getNome());
+
+        c.attacca();
+
         if(c instanceof Magico){
             Mago magoTemp = (Mago) c;
             magoTemp.cura();
