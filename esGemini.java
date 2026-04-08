@@ -30,7 +30,7 @@ import java.util.ArrayList;
         }
         public abstract double calcolaBollo();
     }
-    class Auto extends Veicolo{
+    class Auto extends Veicolo {
         private int cilindrata;
 
         public int getCilindrata() {
@@ -50,6 +50,9 @@ import java.util.ArrayList;
         }
         public double calcolaBollo(){
             return cilindrata * 0.50;
+        }
+        public void fermato(){
+            System.out.println("Il veicolo è stato fermato dalla polizia! ");
         }
     }
     class Camion extends Veicolo{
