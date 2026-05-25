@@ -43,6 +43,7 @@ public void riceviDanno(int danno){
         }
     }
     public abstract void attacca(Combattente bersaglio);
+    
 }
 
 class Guerriero extends Combattente{
@@ -53,18 +54,21 @@ class Guerriero extends Combattente{
     }
 
     public void setForzaFisica(int forzaFisica) {
-        this.forzaFisica = forzaFisica;
+        if (forzaFisica >= 0) {
+            this.forzaFisica = forzaFisica;
+        }
+        else{
+            System.out.println("La forza di un personaggio non può essere negativa");
+        }
     }
     public Guerriero(String nome, int puntiVita,int forzaFisica){
         super(nome, puntiVita);
         setForzaFisica(forzaFisica);
     }
-    public void attacca(){
-        System.out.println("Attacco con la spada pesante! ");
-    }
+
     @Override
     public void attacca(Combattente bersaglio){
-        System.out.println("L'attaccante ha colpito il bersagli! ");
+        System.out.println(getNome() + " attacca " + bersaglio.getNome());
         bersaglio.riceviDanno(forzaFisica);
     }
 }
@@ -77,19 +81,23 @@ class Mago extends Combattente implements Magico{
     }
 
     public void setMana(int mana) {
-        this.mana = mana;
+        if (mana >= 0) {
+            this.mana = mana;
+        }
+        else{
+            System.out.println("Il mana di un mago non può essere negativo");
+        }
     }
     public Mago(String nome, int puntiVita, int mana){
         super(nome, puntiVita);
         setMana(mana);
     }
-    public void attacca(){
-        System.out.println("Lancia un dardo di energia! ");
-    }
+
     public void cura(){
-        System.out.println("Recupera 20 HP! ");
+        setPuntiVita(getPuntiVita() + 20);
+        System.out.println(getNome() + " ha recuperato 20 HP");
     }
-        @Override
+    @Override
     public void attacca(Combattente bersaglio){
         System.out.println("L'attaccante ha colpito il bersagli! ");
         bersaglio.riceviDanno(mana);
